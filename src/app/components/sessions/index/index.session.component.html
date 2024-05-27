@@ -1,0 +1,27 @@
+<div class="px-5 mt-4">
+  <div class="d-flex align-items-center justify-content-between mb-5">
+    <div>
+      <h5>Séances</h5>
+      <p class="small text-muted">Consulter la liste des séances</p>
+    </div>
+    <a class="btn btn-primary" routerLink="/sessions/add">Ajouter une séance</a>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center font-weight-bold">
+      <span class="col">Id</span>
+      <span class="col">Date</span>
+      <span class="col">Temps</span>
+    </li>
+    <li *ngFor="let session of sessions" class="list-group-item d-flex justify-content-between align-items-center">
+      <span class="col">{{ session.id }}</span>
+      <span class="col">{{ session.date | date }}</span>
+      <span class="col">Du {{ session.start }} à {{ session.end }}</span>
+    </li>
+    @if(sessions.length == 0) {
+      <li class="list-group-item text-center py-4">
+        <h3 class="fw-bold">Liste vide</h3>
+        <p class="small mb-0">Aucune session est ajouté à ce moment</p>
+      </li>
+    }
+  </ul>
+</div>

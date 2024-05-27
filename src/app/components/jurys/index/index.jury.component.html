@@ -1,0 +1,25 @@
+<div class="px-5 mt-4">
+  <div class="d-flex align-items-center justify-content-between mb-5">
+    <div>
+      <h5>Membre des jury</h5>
+      <p class="small text-muted">Consulter la listes dans les membres des jury</p>
+    </div>
+    <a class="btn btn-primary" routerLink="/jury/add">Ajouter un membre</a>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center font-weight-bold">
+      <span class="col">Name</span>
+      <span class="col">Specialté</span>
+    </li>
+    <li *ngFor="let member of members" class="list-group-item d-flex justify-content-between align-items-center">
+      <span class="col">{{ member.name }}</span>
+      <span class="col">{{ member.specialty }}</span>
+    </li>
+    @if(members.length == 0) {
+      <li class="list-group-item text-center py-4">
+        <h3 class="fw-bold">Liste vide</h3>
+        <p class="small mb-0">Aucune membre est ajouté à ce moment</p>
+      </li>
+    }
+  </ul>
+</div>
